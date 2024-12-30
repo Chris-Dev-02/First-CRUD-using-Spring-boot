@@ -33,7 +33,13 @@ public class UserService {
         return user;
     }
 
-    public void deleteUserById(Integer id){
-        userRepository.deleteById(id);
+    public boolean deleteUserById(Integer id){
+        try{
+            userRepository.deleteById(id);
+            return true;
+        }
+        catch(Exception e){
+            return false;
+        }
     }
 }

@@ -45,7 +45,14 @@ public class ProductController {
     }
 
     @DeleteMapping("/{id}")
-    public void deleteProduct(@PathVariable Integer id){
-        productService.deleteById(id);
+    public String deleteProduct(@PathVariable Integer id){
+        boolean ok = productService.deleteById(id);
+
+        if(ok){
+            return "Product with id: " + id + " deleted";
+        }
+        else{
+            return "There is no product with id " + id;
+        }
     }
 }

@@ -36,7 +36,13 @@ public class ProductService {
         return product;
     }
 
-    public void deleteById(Integer id){
-        productRepository.deleteById(id);
+    public Boolean deleteById(Integer id){
+        try{
+            productRepository.deleteById(id);
+            return true;
+        }
+        catch(Exception e){
+            return false;
+        }
     }
 }
